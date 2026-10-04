@@ -34,3 +34,10 @@ All functions expect integers for numerators and denominators. Passing a non-int
 - `toString(x)` — format as `"n"` or `"n/d"`
 - `parse(s)` — parse a string into a rational
 - `equals(a, b)` — test whether two rationals represent the same number
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
